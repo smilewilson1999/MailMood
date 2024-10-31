@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "MailMood",
+  "version": "1.0",
+  "description": "Detects emotions in emails using MailMood",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["https://api.hume.ai/*", "*://mail.google.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["*://mail.google.com/*"],
+      "js": ["dist/content.js"],
+      "all_frames": true
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "icons": {
+    "16": "logo16.png",
+    "48": "logo48.png",
+    "128": "logo128.png"
+  }
+}
