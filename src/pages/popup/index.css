@@ -2,7 +2,6 @@ body {
   font-family: "Comic Sans MS", cursive, sans-serif;
   background-color: #ffe5e5;
   color: #ff6b6b;
-  width: 360px;
   margin: 0;
   padding: 16px;
 }
@@ -17,6 +16,7 @@ body {
 .logo-container {
   text-align: center;
   margin-bottom: 16px;
+  margin-left: 100px;
 }
 
 .logo {
@@ -39,7 +39,6 @@ button {
   color: white;
   border: none;
   padding: 12px 20px;
-  border-radius: 25px;
   cursor: pointer;
   font-size: 18px;
   width: 100%;
