@@ -1,7 +1,8 @@
 import { questionStorage } from "./question-storage";
 import { Hume, HumeClient, HumeError } from "hume";
 import type { EmotionResult } from "@/types/hume";
-import { getApiKey } from "@/lib/api-key";
+import { getGeminiApiKey, getHumeApiKey } from "@/lib/api-key";
+import { GeminiClient, EmotionContext, EmailDraftResponse } from "@/lib/gemini";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type AIQueryErrorType = "AI_QUERY_ERROR" | "NO_API_KEY";
@@ -19,46 +20,60 @@ export class AIQueryError extends Error {
 
 export interface AIQueryResponse {
   emotions: EmotionResult[];
+  context: EmotionContext[];
 }
 
 export async function submitQuery(): Promise<AIQueryResponse> {
-  const apiKey = await getApiKey();
-  if (!apiKey) {
+  const apiKeyHume = await getHumeApiKey();
+  const apiKeyGemini = await getGeminiApiKey();
+
+  if (!apiKeyHume) {
     throw new AIQueryError("NO_API_KEY", "No Hume API key found");
   }
+
+  if (!apiKeyGemini) {
+    throw new AIQueryError("NO_API_KEY", "No Gemini API key found");
+  }
+
   const selectedText = await questionStorage.getSelectedText();
   if (!selectedText) {
     throw new AIQueryError("AI_QUERY_ERROR", "No selected text found");
   }
 
   try {
-    const humeClient = new HumeClient({ apiKey });
+    // Initialize clients
+    const humeClient = new HumeClient({ apiKey: apiKeyHume });
+    const geminiClient = new GeminiClient({ apiKey: apiKeyGemini });
 
-    // Configure job
+    // Configure and submit Hume job
     const jobConfig: Hume.expressionMeasurement.InferenceBaseRequest = {
       text: [selectedText],
-      models: { language: {} }, // Use default language model configuration
+      models: { language: {} },
     };
 
-    // Submit Job
+    // Submit Hume Job
     const job = await humeClient.expressionMeasurement.batch.startInferenceJob(
       jobConfig
     );
-
-    // Await Job to complete
     await job.awaitCompletion();
 
-    // Fetch Job predictions by Job ID
+    // Get Hume predictions
     const results =
       await humeClient.expressionMeasurement.batch.getJobPredictions(job.jobId);
 
-    // Calculate top three emotions
+    // Calculate emotions
     const emotions = calculateTopEmotions(results);
 
-    // Clear the stored data after successful query
+    // Get Gemini context analysis
+    const context = await geminiClient.explainEmotions(selectedText, emotions);
+
+    // Save analyzed text and results before clearing
+    await questionStorage.saveAnalyzedText(selectedText, emotions, context);
+
+    // Clear stored data after successful query
     await questionStorage.clearSelectedText();
 
-    return { emotions };
+    return { emotions, context };
   } catch (error: any) {
     if (error instanceof HumeError) {
       throw new AIQueryError("AI_QUERY_ERROR", error.message);
@@ -115,4 +130,40 @@ function calculateTopEmotions(results: any): EmotionResult[] {
     }));
 
   return sortedEmotions;
+}
+
+/**
+ * Generate an email draft based on the analyzed text
+ * @returns EmailDraftResponse
+ * @throws AIQueryError
+ */
+export async function generateEmailDraft(): Promise<EmailDraftResponse> {
+  const [apiKey, analyzedText] = await Promise.all([
+    getGeminiApiKey(),
+    questionStorage.getAnalyzedText(),
+  ]);
+
+  if (!apiKey) {
+    throw new AIQueryError("NO_API_KEY", "No Gemini API key found");
+  }
+  if (!analyzedText) {
+    throw new AIQueryError("AI_QUERY_ERROR", "No analyzed text found");
+  }
+
+  const geminiClient = new GeminiClient({
+    apiKey: apiKey,
+  });
+
+  try {
+    return await geminiClient.generateEmailDraft(
+      analyzedText.text,
+      analyzedText.emotions,
+      analyzedText.context
+    );
+  } catch (error: any) {
+    throw new AIQueryError(
+      "AI_QUERY_ERROR",
+      error.message || "Failed to generate email draft"
+    );
+  }
 }

@@ -4,6 +4,7 @@ import { sendMessageToContent } from "../utils";
 import { questionStorage } from "../modules/question-storage";
 import { backgroundState, QueryStatus } from "../states";
 import { ConfigManager } from "@/types/customization-config";
+import { generateEmailDraft } from "../modules/core";
 
 export function setupRuntimeListeners() {
   chrome.runtime.onMessage.addListener(handleRuntimeMessage);
@@ -32,6 +33,9 @@ function handleRuntimeMessage(
     case MESSAGES.GET_CONFIG:
       handleGetConfig(sendResponse);
       break;
+    case MESSAGES.GENERATE_EMAIL_DRAFT:
+      handleGenerateEmailDraft(sendResponse);
+      return true;
   }
 
   // sending asynchronous message :)
@@ -78,5 +82,20 @@ async function handleGetConfig(sendResponse: ResponseCallback) {
     sendResponse({ success: true, data: config });
   } catch (error) {
     sendResponse({ success: false, data: null, error: error as Error });
+  }
+}
+
+// Generate email draft
+async function handleGenerateEmailDraft(sendResponse: ResponseCallback) {
+  try {
+    const draft = await generateEmailDraft();
+    sendMessageToContent(MESSAGES.EMAIL_DRAFT_GENERATED, { draft });
+    sendResponse({ success: true, data: draft });
+  } catch (error) {
+    sendResponse({ success: false, data: null, error: error as Error });
+    sendMessageToContent(MESSAGES.EMAIL_DRAFT_GENERATED, {
+      error:
+        error instanceof Error ? error.message : "Failed to generate draft",
+    });
   }
 }

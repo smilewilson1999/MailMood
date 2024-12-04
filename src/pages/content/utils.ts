@@ -1,19 +1,34 @@
 import { MESSAGES } from "@/constants";
 
-type MessageCallback<D = unknown> = ({
-  success,
-  data,
-  error,
-}: {
+export interface MessageResponse<D = unknown> {
   success: boolean;
-  data: D;
-  error: Error;
-}) => any;
+  data?: D;
+  error?: Error;
+}
+
+type MessageCallback<D = unknown> = (response: MessageResponse<D>) => void;
 
 export const sendMessageToBackground = <D>(
   type: MESSAGES,
   data?: any,
   cb?: MessageCallback<D>
-) => {
-  chrome.runtime.sendMessage({ type, data }).then(cb);
+): Promise<MessageResponse<D>> => {
+  return new Promise((resolve) => {
+    chrome.runtime.sendMessage(
+      { type, data },
+      (response: MessageResponse<D>) => {
+        // Handle callback if provided
+        if (cb) {
+          cb(response);
+        }
+        // Resolve the promise
+        resolve(
+          response || {
+            success: false,
+            error: new Error("No response from background"),
+          }
+        );
+      }
+    );
+  });
 };

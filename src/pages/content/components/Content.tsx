@@ -12,6 +12,7 @@ import {
 } from "@/types/customization-config";
 import "../style.css";
 import { EmotionResult } from "@/types/hume";
+import { EmailDraftResponse, EmotionContext } from "@/lib/gemini";
 
 export default function Content() {
   // Display States
@@ -20,6 +21,7 @@ export default function Content() {
   // Query States
   const [queryStatus, setQueryStatus] = useState<QueryStatus>("ready");
   const [emotionResult, setEmotionResult] = useState<EmotionResult[]>([]);
+  const [emotionContext, setEmotionContext] = useState<EmotionContext[]>([]);
   const [error, setError] = useState<string>();
 
   // Customization
@@ -29,6 +31,7 @@ export default function Content() {
     setIsDisplayVisible,
     setQueryStatus,
     setEmotionResult,
+    setEmotionContext,
     setError,
     setConfig,
   });
@@ -77,6 +80,7 @@ export default function Content() {
       <Emotion
         status={queryStatus}
         emotionResult={emotionResult}
+        emotionContext={emotionContext}
         error={error}
         style={config.displayStyle}
         isVisible={isDisplayVisible}
