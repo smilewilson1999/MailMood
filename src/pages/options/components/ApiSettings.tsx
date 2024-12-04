@@ -56,10 +56,10 @@ export function ApiSettings() {
       </div>
 
       <div className="space-y-4">
-        <h2 className="text-lg font-medium">Gemini Nano Settings</h2>
+        <h2 className="text-lg font-medium">Gemini Settings</h2>
         <div className="space-y-2">
           <p className="text-sm text-muted-foreground">
-            Configure your Gemini Nano API access for contextual analysis
+            Configure your Gemini API access for contextual analysis
           </p>
           <input
             type="password"
