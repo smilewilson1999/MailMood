@@ -1,16 +1,33 @@
-const STORAGE_KEY = "mailmood_api_key";
+const HUME_STORAGE_KEY = "mailmood_api_key";
+const GEMINI_STORAGE_KEY = "mailmood_gemini_api_key";
 
-export async function getApiKey(): Promise<string> {
+export async function getHumeApiKey(): Promise<string> {
   return new Promise((resolve) => {
-    chrome.storage.sync.get([STORAGE_KEY], (result) => {
-      resolve(result[STORAGE_KEY] || "");
+    chrome.storage.sync.get([HUME_STORAGE_KEY], (result) => {
+      resolve(result[HUME_STORAGE_KEY] || "");
     });
   });
 }
 
-export async function setApiKey(apiKey: string): Promise<void> {
+export async function setHumeApiKey(apiKey: string): Promise<void> {
   return new Promise((resolve) => {
-    chrome.storage.sync.set({ [STORAGE_KEY]: apiKey }, () => {
+    chrome.storage.sync.set({ [HUME_STORAGE_KEY]: apiKey }, () => {
+      resolve();
+    });
+  });
+}
+
+export async function getGeminiApiKey(): Promise<string> {
+  return new Promise((resolve) => {
+    chrome.storage.sync.get([GEMINI_STORAGE_KEY], (result) => {
+      resolve(result[GEMINI_STORAGE_KEY] || "");
+    });
+  });
+}
+
+export async function setGeminiApiKey(apiKey: string): Promise<void> {
+  return new Promise((resolve) => {
+    chrome.storage.sync.set({ [GEMINI_STORAGE_KEY]: apiKey }, () => {
       resolve();
     });
   });

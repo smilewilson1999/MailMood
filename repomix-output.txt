@@ -1,0 +1,3369 @@
+================================================================
+File Summary
+================================================================
+
+Purpose:
+--------
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+
+File Format:
+------------
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Repository structure
+4. Multiple file entries, each consisting of:
+  a. A separator line (================)
+  b. The file path (File: path/to/file)
+  c. Another separator line
+  d. The full contents of the file
+  e. A blank line
+
+Usage Guidelines:
+-----------------
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+
+Notes:
+------
+- Some files may have been excluded based on .gitignore rules and Repomix's
+  configuration.
+- Binary files are not included in this packed representation. Please refer to
+  the Repository Structure section for a complete list of file paths, including
+  binary files.
+
+Additional Info:
+----------------
+
+For more information about Repomix, visit: https://github.com/yamadashy/repomix
+
+================================================================
+Repository Structure
+================================================================
+src/
+  assets/
+    img/
+      logo.svg
+    styles/
+      tailwind.css
+  components/
+    ui/
+      button.tsx
+  lib/
+    storage/
+      base/
+        base.ts
+        enums.ts
+        types.ts
+      index.ts
+    api-key.ts
+    api.ts
+    hume.ts
+    utils.ts
+  locales/
+    en/
+      messages.json
+  pages/
+    background/
+      listeners/
+        commands.ts
+        index.ts
+        runtime.ts
+      modules/
+        core.ts
+        question-storage.ts
+      index.ts
+      states.ts
+      utils.ts
+    content/
+      components/
+        Content.tsx
+        Emotion.tsx
+        EmotionOverlay.tsx
+        TextSelector.ts
+      handlers/
+        messageHandler.ts
+      index.tsx
+      style.css
+      utils.ts
+    devtools/
+      index.html
+      index.ts
+    newtab/
+      index.css
+      index.html
+      index.tsx
+      Newtab.css
+      Newtab.tsx
+    options/
+      components/
+        ApiSettings.tsx
+      index.css
+      index.html
+      index.tsx
+      Options.tsx
+    panel/
+      index.html
+      index.tsx
+      Panel.css
+      Panel.tsx
+    popup/
+      index.css
+      index.html
+      index.tsx
+      Popup.tsx
+  types/
+    customization-config.ts
+    hume.ts
+  constants.ts
+  global.css
+  global.d.ts
+  vite-env.d.ts
+.gitignore
+custom-vite-plugins 2.ts
+custom-vite-plugins.ts
+LICENSE
+LICENSE 2
+manifest.dev 2.json
+manifest.dev.json
+manifest.json
+nodemon.chrome.json
+nodemon.firefox.json
+package.json
+postcss.config.cjs
+README.md
+tailwind.config.cjs
+tsconfig.json
+vite-env.d.ts
+vite.config.ts
+
+================================================================
+Repository Files
+================================================================
+
+================
+File: src/assets/img/logo.svg
+================
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3">
+    <g fill="#61DAFB">
+        <path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z"/>
+        <circle cx="420.9" cy="296.5" r="45.7"/>
+        <path d="M520.5 78.1z"/>
+    </g>
+</svg>
+
+================
+File: src/assets/styles/tailwind.css
+================
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+================
+File: src/components/ui/button.tsx
+================
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default:
+          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-9 px-4 py-2",
+        sm: "h-8 rounded-md px-3 text-xs",
+        lg: "h-10 rounded-md px-8",
+        icon: "h-9 w-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+Button.displayName = "Button";
+
+export { Button, buttonVariants };
+
+================
+File: src/lib/storage/base/base.ts
+================
+import type { BaseStorage, StorageConfig, ValueOrUpdate } from './types';
+import { SessionAccessLevelEnum, StorageEnum } from './enums';
+
+/**
+ * Chrome reference error while running `processTailwindFeatures` in tailwindcss.
+ *  To avoid this, we need to check if the globalThis.chrome is available and add fallback logic.
+ */
+const chrome = globalThis.chrome;
+
+/**
+ * Sets or updates an arbitrary cache with a new value or the result of an update function.
+ */
+async function updateCache<D>(valueOrUpdate: ValueOrUpdate<D>, cache: D | null): Promise<D> {
+  // Type guard to check if our value or update is a function
+  function isFunction<D>(value: ValueOrUpdate<D>): value is (prev: D) => D | Promise<D> {
+    return typeof value === 'function';
+  }
+
+  // Type guard to check in case of a function, if its a Promise
+  function returnsPromise<D>(func: (prev: D) => D | Promise<D>): func is (prev: D) => Promise<D> {
+    // Use ReturnType to infer the return type of the function and check if it's a Promise
+    return (func as (prev: D) => Promise<D>) instanceof Promise;
+  }
+
+  if (isFunction(valueOrUpdate)) {
+    // Check if the function returns a Promise
+    if (returnsPromise(valueOrUpdate)) {
+      return valueOrUpdate(cache as D);
+    } else {
+      return valueOrUpdate(cache as D);
+    }
+  } else {
+    return valueOrUpdate;
+  }
+}
+
+/**
+ * If one session storage needs access from content scripts, we need to enable it globally.
+ * @default false
+ */
+let globalSessionAccessLevelFlag: StorageConfig['sessionAccessForContentScripts'] = false;
+
+/**
+ * Checks if the storage permission is granted in the manifest.json.
+ */
+function checkStoragePermission(storageEnum: StorageEnum): void {
+  if (!chrome) {
+    return;
+  }
+
+  if (chrome.storage[storageEnum] === undefined) {
+    throw new Error(`Check your storage permission in manifest.json: ${storageEnum} is not defined`);
+  }
+}
+
+/**
+ * Creates a storage area for persisting and exchanging data.
+ */
+export function createStorage<D = string>(key: string, fallback: D, config?: StorageConfig<D>): BaseStorage<D> {
+  let cache: D | null = null;
+  let initedCache = false;
+  let listeners: Array<() => void> = [];
+
+  const storageEnum = config?.storageEnum ?? StorageEnum.Local;
+  const liveUpdate = config?.liveUpdate ?? false;
+
+  const serialize = config?.serialization?.serialize ?? ((v: D) => v);
+  const deserialize = config?.serialization?.deserialize ?? (v => v as D);
+
+  // Set global session storage access level for StoryType.Session, only when not already done but needed.
+  if (
+    globalSessionAccessLevelFlag === false &&
+    storageEnum === StorageEnum.Session &&
+    config?.sessionAccessForContentScripts === true
+  ) {
+    checkStoragePermission(storageEnum);
+    chrome?.storage[storageEnum]
+      .setAccessLevel({
+        accessLevel: SessionAccessLevelEnum.ExtensionPagesAndContentScripts,
+      })
+      .catch(error => {
+        console.warn(error);
+        console.warn('Please call setAccessLevel into different context, like a background script.');
+      });
+    globalSessionAccessLevelFlag = true;
+  }
+
+  // Register life cycle methods
+  const get = async (): Promise<D> => {
+    checkStoragePermission(storageEnum);
+    const value = await chrome?.storage[storageEnum].get([key]);
+
+    if (!value) {
+      return fallback;
+    }
+
+    return deserialize(value[key]) ?? fallback;
+  };
+
+  const _emitChange = () => {
+    listeners.forEach(listener => listener());
+  };
+
+  const set = async (valueOrUpdate: ValueOrUpdate<D>) => {
+    if (initedCache === false) {
+      cache = await get();
+    }
+    cache = await updateCache(valueOrUpdate, cache);
+
+    await chrome?.storage[storageEnum].set({ [key]: serialize(cache) });
+    _emitChange();
+  };
+
+  const subscribe = (listener: () => void) => {
+    listeners = [...listeners, listener];
+
+    return () => {
+      listeners = listeners.filter(l => l !== listener);
+    };
+  };
+
+  const getSnapshot = () => {
+    return cache;
+  };
+
+  get().then(data => {
+    cache = data;
+    initedCache = true;
+    _emitChange();
+  });
+
+  // Listener for live updates from the browser
+  async function _updateFromStorageOnChanged(changes: { [key: string]: chrome.storage.StorageChange }) {
+    // Check if the key we are listening for is in the changes object
+    if (changes[key] === undefined) return;
+
+    const valueOrUpdate: ValueOrUpdate<D> = deserialize(changes[key].newValue);
+
+    if (cache === valueOrUpdate) return;
+
+    cache = await updateCache(valueOrUpdate, cache);
+
+    _emitChange();
+  }
+
+  // Register listener for live updates for our storage area
+  if (liveUpdate) {
+    chrome?.storage[storageEnum].onChanged.addListener(_updateFromStorageOnChanged);
+  }
+
+  return {
+    get,
+    set,
+    getSnapshot,
+    subscribe,
+  };
+}
+
+================
+File: src/lib/storage/base/enums.ts
+================
+/**
+ * Storage area type for persisting and exchanging data.
+ * @see https://developer.chrome.com/docs/extensions/reference/storage/#overview
+ */
+export enum StorageEnum {
+    /**
+     * Persist data locally against browser restarts. Will be deleted by uninstalling the extension.
+     * @default
+     */
+    Local = 'local',
+    /**
+     * Uploads data to the users account in the cloud and syncs to the users browsers on other devices. Limits apply.
+     */
+    Sync = 'sync',
+    /**
+     * Requires an [enterprise policy](https://www.chromium.org/administrators/configuring-policy-for-extensions) with a
+     * json schema for company wide config.
+     */
+    Managed = 'managed',
+    /**
+     * Only persist data until the browser is closed. Recommended for service workers which can shutdown anytime and
+     * therefore need to restore their state. Set {@link SessionAccessLevelEnum} for permitting content scripts access.
+     * @implements Chromes [Session Storage](https://developer.chrome.com/docs/extensions/reference/storage/#property-session)
+     */
+    Session = 'session',
+  }
+  
+  /**
+   * Global access level requirement for the {@link StorageEnum.Session} Storage Area.
+   * @implements Chromes [Session Access Level](https://developer.chrome.com/docs/extensions/reference/storage/#method-StorageArea-setAccessLevel)
+   */
+  export enum SessionAccessLevelEnum {
+    /**
+     * Storage can only be accessed by Extension pages (not Content scripts).
+     * @default
+     */
+    ExtensionPagesOnly = 'TRUSTED_CONTEXTS',
+    /**
+     * Storage can be accessed by both Extension pages and Content scripts.
+     */
+    ExtensionPagesAndContentScripts = 'TRUSTED_AND_UNTRUSTED_CONTEXTS',
+  }
+
+================
+File: src/lib/storage/base/types.ts
+================
+import type { StorageEnum } from './enums';
+
+export type ValueOrUpdate<D> = D | ((prev: D) => Promise<D> | D);
+
+export type BaseStorage<D> = {
+  get: () => Promise<D>;
+  set: (value: ValueOrUpdate<D>) => Promise<void>;
+  getSnapshot: () => D | null;
+  subscribe: (listener: () => void) => () => void;
+};
+
+export type StorageConfig<D = string> = {
+  /**
+   * Assign the {@link StorageEnum} to use.
+   * @default Local
+   */
+  storageEnum?: StorageEnum;
+  /**
+   * Only for {@link StorageEnum.Session}: Grant Content scripts access to storage area?
+   * @default false
+   */
+  sessionAccessForContentScripts?: boolean;
+  /**
+   * Keeps state live in sync between all instances of the extension. Like between popup, side panel and content scripts.
+   * To allow chrome background scripts to stay in sync as well, use {@link StorageEnum.Session} storage area with
+   * {@link StorageConfig.sessionAccessForContentScripts} potentially also set to true.
+   * @see https://stackoverflow.com/a/75637138/2763239
+   * @default false
+   */
+  liveUpdate?: boolean;
+  /**
+   * An optional props for converting values from storage and into it.
+   * @default undefined
+   */
+  serialization?: {
+    /**
+     * convert non-native values to string to be saved in storage
+     */
+    serialize: (value: D) => string;
+    /**
+     * convert string value from storage to non-native values
+     */
+    deserialize: (text: string) => D;
+  };
+};
+
+================
+File: src/lib/storage/index.ts
+================
+export * from "./base/base";
+export { BaseStorage } from "./base/types";
+export { StorageEnum, SessionAccessLevelEnum } from "./base/enums";
+
+================
+File: src/lib/api-key.ts
+================
+const STORAGE_KEY = "mailmood_api_key";
+
+export async function getApiKey(): Promise<string> {
+  return new Promise((resolve) => {
+    chrome.storage.sync.get([STORAGE_KEY], (result) => {
+      resolve(result[STORAGE_KEY] || "");
+    });
+  });
+}
+
+export async function setApiKey(apiKey: string): Promise<void> {
+  return new Promise((resolve) => {
+    chrome.storage.sync.set({ [STORAGE_KEY]: apiKey }, () => {
+      resolve();
+    });
+  });
+}
+
+================
+File: src/lib/api.ts
+================
+import { HumeClient } from "./hume";
+
+// Initialize Hume client with API key
+const humeClient = new HumeClient(import.meta.env.VITE_HUME_API_KEY);
+
+export async function analyzeEmailEmotions(text: string) {
+  return humeClient.analyzeText(text);
+}
+
+================
+File: src/lib/hume.ts
+================
+import type { EmotionResult } from "@/constants";
+
+interface HumeConfig {
+  apiKey: string;
+}
+
+interface EmotionPrediction {
+  emotions: Array<{
+    name: string;
+    score: number;
+  }>;
+}
+
+interface HumeResponse {
+  results: {
+    predictions: Array<{
+      models: {
+        language: {
+          groupedPredictions: Array<{
+            predictions: EmotionPrediction[];
+          }>;
+        };
+      };
+    }>;
+  };
+}
+
+export class HumeError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "HumeError";
+  }
+}
+
+export class HumeClient {
+  private apiKey: string;
+  private baseUrl: string;
+
+  constructor({ apiKey }: HumeConfig) {
+    this.apiKey = apiKey;
+    this.baseUrl = "https://api.hume.ai/v0/batch/jobs";
+  }
+
+  async analyzeText(text: string): Promise<EmotionResult[]> {
+    try {
+      const jobConfig = {
+        text: [text],
+        models: {
+          language: {
+            granularity: "sentence",
+          },
+        },
+      };
+
+      // Start job
+      const jobResponse = await fetch(`${this.baseUrl}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Hume-Api-Key": this.apiKey,
+        },
+        body: JSON.stringify(jobConfig),
+      });
+
+      if (!jobResponse.ok) {
+        throw new HumeError("Failed to start analysis job");
+      }
+
+      const { job_id } = await jobResponse.json();
+
+      // Poll for results
+      const results = await this.pollForResults(job_id);
+
+      // Process and format results
+      const predictions =
+        results.results.predictions[0].models.language.groupedPredictions[0]
+          .predictions;
+      const overallEmotions: { [key: string]: number } = {};
+
+      predictions.forEach((pred: EmotionPrediction) => {
+        pred.emotions.forEach((emotion) => {
+          if (!overallEmotions[emotion.name]) {
+            overallEmotions[emotion.name] = 0;
+          }
+          overallEmotions[emotion.name] += emotion.score;
+        });
+      });
+
+      // Return top 3 emotions
+      return Object.entries(overallEmotions)
+        .sort(([, scoreA], [, scoreB]) => scoreB - scoreA)
+        .slice(0, 3)
+        .map(([name, score]) => ({
+          name,
+          score: Math.round(score * 100),
+        }));
+    } catch (error) {
+      console.error("Hume analysis error:", error);
+      throw error instanceof HumeError
+        ? error
+        : new HumeError("Failed to analyze text");
+    }
+  }
+
+  private async pollForResults(jobId: string): Promise<HumeResponse> {
+    const maxAttempts = 20;
+    const pollInterval = 1000;
+    let attempts = 0;
+
+    while (attempts < maxAttempts) {
+      const response = await fetch(`${this.baseUrl}/${jobId}`, {
+        headers: {
+          "X-Hume-Api-Key": this.apiKey,
+        },
+      });
+
+      if (!response.ok) {
+        throw new HumeError("Failed to get job results");
+      }
+
+      const data = await response.json();
+      if (data.status === "completed") {
+        return data;
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, pollInterval));
+      attempts++;
+    }
+
+    throw new HumeError("Job timed out");
+  }
+}
+
+================
+File: src/lib/utils.ts
+================
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+================
+File: src/locales/en/messages.json
+================
+{
+  "extName": {
+    "message": "name in src/locales/en/messages.json",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "description in src/locales/en/messages.json",
+    "description": "Extension description"
+  }
+}
+
+================
+File: src/pages/background/listeners/commands.ts
+================
+import { MESSAGES } from "@/constants";
+import { sendMessageToContent } from "../utils";
+import { backgroundState } from "../states";
+import { questionStorage } from "../modules/question-storage";
+import { submitQuery } from "../modules/core";
+
+export function setupCommandListeners() {
+  chrome.commands.onCommand.addListener(handleCommand);
+}
+
+function handleCommand(command: string) {
+  switch (command) {
+    case "toggle_display":
+      handleToggleDisplay();
+      break;
+    case "submit_text":
+      handleSubmitText();
+      break;
+    case "clear_context":
+      handleClearContext();
+      break;
+  }
+}
+
+/**
+ * Toggle the display visibility
+ */
+function handleToggleDisplay() {
+  sendMessageToContent(MESSAGES.TOGGLE_DISPLAY);
+}
+
+/**
+ * Submit the text to the AI
+ */
+async function handleSubmitText() {
+  try {
+    const state = backgroundState.getState();
+    if (state.queryStatus === "processing") return;
+
+    backgroundState.setState({ queryStatus: "processing" });
+    sendMessageToContent(MESSAGES.QUERY_STATUS, { status: "processing" });
+
+    const response = await submitQuery();
+    console.log("Response", response);
+
+    backgroundState.setState({ queryStatus: "done" });
+    sendMessageToContent(MESSAGES.QUERY_STATUS, {
+      status: "done",
+      emotions: response.emotions,
+    });
+    console.log("finished");
+  } catch (error) {
+    sendMessageToContent(MESSAGES.QUERY_STATUS, {
+      status: "error",
+      error,
+    });
+  }
+}
+
+/**
+ * Clear the context
+ */
+async function handleClearContext() {
+  try {
+    // clear from storage
+    await questionStorage.clearSelectedText();
+
+    // update query status
+    backgroundState.setState({ queryStatus: "ready" });
+    sendMessageToContent(MESSAGES.QUERY_STATUS, { status: "ready" });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+================
+File: src/pages/background/listeners/index.ts
+================
+export * from "./commands";
+export * from "./runtime";
+
+================
+File: src/pages/background/listeners/runtime.ts
+================
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { MESSAGES } from "@/constants";
+import { sendMessageToContent } from "../utils";
+import { questionStorage } from "../modules/question-storage";
+import { backgroundState, QueryStatus } from "../states";
+import { ConfigManager } from "@/types/customization-config";
+
+export function setupRuntimeListeners() {
+  chrome.runtime.onMessage.addListener(handleRuntimeMessage);
+}
+
+type Response = {
+  success: boolean;
+  data: unknown;
+  error?: Error;
+};
+
+type ResponseCallback = (response: Response) => void;
+
+function handleRuntimeMessage(
+  message: { type: MESSAGES; data?: any },
+  sender: chrome.runtime.MessageSender,
+  sendResponse: ResponseCallback
+) {
+  switch (message.type) {
+    case MESSAGES.TEXT_SELECTED:
+      handleTextSelected(message.data);
+      break;
+    case MESSAGES.QUERY_STATUS:
+      handleGetQueryStatus(sendResponse);
+      break;
+    case MESSAGES.GET_CONFIG:
+      handleGetConfig(sendResponse);
+      break;
+  }
+
+  // sending asynchronous message :)
+  return true;
+}
+
+async function handleTextSelected(data: string) {
+  try {
+    await questionStorage.saveSelectedText(data);
+
+    // set the status state to loaded
+    backgroundState.setState({ queryStatus: "text_loaded" });
+
+    const statusData = {
+      status: "text_loaded" as QueryStatus,
+    };
+
+    sendMessageToContent(MESSAGES.QUERY_STATUS, statusData);
+
+    // request update on the count
+  } catch (error) {
+    console.error("Error handling text selected", error);
+  }
+}
+
+async function handleGetQueryStatus(sendResponse: ResponseCallback) {
+  try {
+    const state = backgroundState.getState();
+    const data = {
+      status: state.queryStatus,
+    };
+
+    sendResponse({ success: true, data });
+  } catch (error) {
+    sendResponse({ success: false, data: null, error: error as Error });
+  }
+}
+
+// Customization
+async function handleGetConfig(sendResponse: ResponseCallback) {
+  try {
+    let config = await ConfigManager.getConfig();
+
+    sendResponse({ success: true, data: config });
+  } catch (error) {
+    sendResponse({ success: false, data: null, error: error as Error });
+  }
+}
+
+================
+File: src/pages/background/modules/core.ts
+================
+import { questionStorage } from "./question-storage";
+import { Hume, HumeClient, HumeError } from "hume";
+import type { EmotionResult } from "@/types/hume";
+import { getApiKey } from "@/lib/api-key";
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+type AIQueryErrorType = "AI_QUERY_ERROR" | "NO_API_KEY";
+
+export class AIQueryError extends Error {
+  type: AIQueryErrorType;
+  message: string;
+
+  constructor(type: AIQueryErrorType, message: string) {
+    super(message);
+    this.type = type;
+    this.message = message;
+  }
+}
+
+export interface AIQueryResponse {
+  emotions: EmotionResult[];
+}
+
+export async function submitQuery(): Promise<AIQueryResponse> {
+  const apiKey = await getApiKey();
+  if (!apiKey) {
+    throw new AIQueryError("NO_API_KEY", "No Hume API key found");
+  }
+  const selectedText = await questionStorage.getSelectedText();
+  if (!selectedText) {
+    throw new AIQueryError("AI_QUERY_ERROR", "No selected text found");
+  }
+
+  try {
+    const humeClient = new HumeClient({ apiKey });
+
+    // Configure job
+    const jobConfig: Hume.expressionMeasurement.InferenceBaseRequest = {
+      text: [selectedText],
+      models: { language: {} }, // Use default language model configuration
+    };
+
+    // Submit Job
+    const job = await humeClient.expressionMeasurement.batch.startInferenceJob(
+      jobConfig
+    );
+
+    // Await Job to complete
+    await job.awaitCompletion();
+
+    // Fetch Job predictions by Job ID
+    const results =
+      await humeClient.expressionMeasurement.batch.getJobPredictions(job.jobId);
+
+    // Calculate top three emotions
+    const emotions = calculateTopEmotions(results);
+
+    // Clear the stored data after successful query
+    await questionStorage.clearSelectedText();
+
+    return { emotions };
+  } catch (error: any) {
+    if (error instanceof HumeError) {
+      throw new AIQueryError("AI_QUERY_ERROR", error.message);
+    } else {
+      throw new AIQueryError(
+        "AI_QUERY_ERROR",
+        error.message || "Unknown error"
+      );
+    }
+  }
+}
+
+function calculateTopEmotions(results: any): EmotionResult[] {
+  if (
+    !results ||
+    !results[0] ||
+    !results[0].results ||
+    !results[0].results.predictions ||
+    !results[0].results.predictions[0] ||
+    !results[0].results.predictions[0].models ||
+    !results[0].results.predictions[0].models.language ||
+    !results[0].results.predictions[0].models.language.groupedPredictions ||
+    !results[0].results.predictions[0].models.language.groupedPredictions[0] ||
+    !results[0].results.predictions[0].models.language.groupedPredictions[0]
+      .predictions
+  ) {
+    throw new Error("Unexpected API response structure");
+  }
+
+  const predictions =
+    results[0].results.predictions[0].models.language.groupedPredictions[0]
+      .predictions;
+
+  // Calculate overall emotion scores
+  const overallEmotions: { [key: string]: number } = {};
+  predictions.forEach((pred: any) => {
+    if (pred.emotions) {
+      pred.emotions.forEach((emotion: any) => {
+        if (!overallEmotions[emotion.name]) {
+          overallEmotions[emotion.name] = 0;
+        }
+        overallEmotions[emotion.name] += emotion.score;
+      });
+    }
+  });
+
+  // Sort and format the top 3 emotions
+  const sortedEmotions = Object.entries(overallEmotions)
+    .sort(([, scoreA], [, scoreB]) => scoreB - scoreA)
+    .slice(0, 3)
+    .map(([name, score]) => ({
+      name,
+      score: Number(score),
+    }));
+
+  return sortedEmotions;
+}
+
+================
+File: src/pages/background/modules/question-storage.ts
+================
+import { createStorage } from "@/lib/storage";
+import { StorageEnum } from "@/lib/storage";
+
+class QuestionStorage {
+  private textStorage = createStorage<string>("mailmood_text_selected", "", {
+    storageEnum: StorageEnum.Local,
+    liveUpdate: true,
+  });
+
+  // Text Management
+  async getSelectedText() {
+    return this.textStorage.get();
+  }
+
+  async saveSelectedText(text: string) {
+    const processedText = text.trim();
+    if (!processedText) return null;
+
+    const currentText = await this.getSelectedText();
+    if (currentText === processedText) return null;
+
+    const newText = `${currentText} ${processedText}`.trim();
+    await this.textStorage.set(newText);
+  }
+
+  async clearSelectedText() {
+    await this.textStorage.set("");
+  }
+}
+
+const questionStorage = new QuestionStorage();
+export { questionStorage };
+
+================
+File: src/pages/background/index.ts
+================
+import { setupCommandListeners, setupRuntimeListeners } from "./listeners";
+import { questionStorage } from "./modules/question-storage";
+
+// Debug logging
+chrome.commands.onCommand.addListener((command) => {
+  console.log("Command received:", command);
+});
+
+function initialize() {
+  // Debug: list all commands
+  chrome.commands.getAll((commands) => {
+    console.log("Available commands:", commands);
+  });
+
+  // Setup listeners
+  setupCommandListeners();
+  setupRuntimeListeners();
+
+  // clear the previous context, query status when the extension is loaded / reloaded
+  questionStorage.clearSelectedText();
+
+  console.log("MailMood background loaded");
+}
+
+// Initialize on startup
+chrome.runtime.onStartup.addListener(() => {
+  initialize();
+});
+
+// Initialize install/update/reload
+initialize();
+
+================
+File: src/pages/background/states.ts
+================
+export type QueryStatus =
+  | "ready"
+  | "text_loaded"
+  | "processing"
+  | "done"
+  | "error";
+
+export interface BackgroundState {
+  queryStatus: QueryStatus;
+}
+
+/**
+ * The state only exists temporarily in memory. It'll not persist when the extension is reloaded.
+ */
+class StateManager {
+  private state: BackgroundState = {
+    queryStatus: "ready",
+  };
+
+  private listeners: Set<(state: BackgroundState) => void> = new Set();
+
+  getState(): BackgroundState {
+    return { ...this.state };
+  }
+
+  setState(updates: Partial<BackgroundState>) {
+    this.state = { ...this.state, ...updates };
+    this.notifyListeners();
+  }
+
+  private notifyListeners() {
+    this.listeners.forEach((listener) => listener(this.getState()));
+  }
+}
+
+export const backgroundState = new StateManager();
+
+================
+File: src/pages/background/utils.ts
+================
+import { MESSAGES } from "@/constants";
+import type { EmotionResult } from "@/types/hume";
+import { QueryStatus } from "@/pages/background/states";
+
+export interface QueryStatusUpdate {
+  status: QueryStatus;
+  emotions?: EmotionResult[];
+  error?: string;
+}
+
+let isCapturing = false;
+
+export const sendMessageToContent = (type: MESSAGES, data?: unknown) => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    const activeTab = tabs[0];
+    if (activeTab?.id) {
+      chrome.tabs
+        .sendMessage(activeTab.id, {
+          type,
+          data,
+        })
+        .catch((error) => {
+          console.error("Error sending message to content script:", error);
+        });
+    }
+  });
+};
+
+export function updateQueryStatus(update: QueryStatusUpdate) {
+  sendMessageToContent(MESSAGES.QUERY_STATUS, update);
+}
+
+export function toggleCapture(tabId: number) {
+  isCapturing = !isCapturing;
+
+  if (isCapturing) {
+    chrome.action.setBadgeText({ text: "R" });
+    chrome.action.setBadgeBackgroundColor({ color: "#F1EFE5" });
+
+    chrome.tabs.sendMessage(tabId, { action: "checkInjected" }, (response) => {
+      if (chrome.runtime.lastError || !response || !response.injected) {
+        chrome.scripting.executeScript(
+          {
+            target: { tabId },
+            files: ["contentScript.js"],
+          },
+          () => {
+            chrome.tabs.sendMessage(tabId, { action: "startCapture" });
+          }
+        );
+      } else {
+        chrome.tabs.sendMessage(tabId, { action: "startCapture" });
+      }
+    });
+  } else {
+    chrome.action.setBadgeText({ text: "" });
+    chrome.tabs.sendMessage(tabId, { action: "cancelCapture" });
+  }
+}
+
+================
+File: src/pages/content/components/Content.tsx
+================
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
+import { sendMessageToBackground } from "../utils";
+import { MESSAGES } from "@/constants";
+import Emotion from "./Emotion";
+import { createMessageHandler } from "../handlers/messageHandler";
+import { TextSelector } from "./TextSelector";
+import { QueryStatus } from "@/pages/background/states";
+import {
+  CustomizationConfig,
+  DEFAULT_CONFIG,
+} from "@/types/customization-config";
+import "../style.css";
+import { EmotionResult } from "@/types/hume";
+
+export default function Content() {
+  // Display States
+  const [isDisplayVisible, setIsDisplayVisible] = useState(false);
+
+  // Query States
+  const [queryStatus, setQueryStatus] = useState<QueryStatus>("ready");
+  const [emotionResult, setEmotionResult] = useState<EmotionResult[]>([]);
+  const [error, setError] = useState<string>();
+
+  // Customization
+  const [config, setConfig] = useState<CustomizationConfig>(DEFAULT_CONFIG);
+
+  const messageHandler = createMessageHandler({
+    setIsDisplayVisible,
+    setQueryStatus,
+    setEmotionResult,
+    setError,
+    setConfig,
+  });
+
+  useEffect(() => {
+    chrome.runtime.onMessage.addListener(messageHandler);
+
+    // retrieve query status
+    sendMessageToBackground<{ status: QueryStatus }>(
+      MESSAGES.QUERY_STATUS,
+      null,
+      (response: any) => {
+        if (response.success && response.data) {
+          const { status } = response.data;
+          setQueryStatus(status);
+        }
+      }
+    );
+
+    // get customization config
+    sendMessageToBackground<CustomizationConfig>(
+      MESSAGES.GET_CONFIG,
+      null,
+      (response) => {
+        if (response.success && response.data) {
+          setConfig(response.data);
+        }
+      }
+    );
+
+    const textSelector = new TextSelector((selectedText) => {
+      sendMessageToBackground(MESSAGES.TEXT_SELECTED, selectedText);
+    });
+
+    // Attach the event listener
+    textSelector.attach();
+
+    return () => {
+      chrome.runtime.onMessage.removeListener(messageHandler);
+      textSelector.detach();
+    };
+  }, []);
+
+  return (
+    <>
+      <Emotion
+        status={queryStatus}
+        emotionResult={emotionResult}
+        error={error}
+        style={config.displayStyle}
+        isVisible={isDisplayVisible}
+      />
+    </>
+  );
+}
+
+================
+File: src/pages/content/components/Emotion.tsx
+================
+import { QueryStatus } from "@/pages/background/states";
+import { DisplayStyle } from "@/types/customization-config";
+import { EmotionResult } from "@/types/hume";
+
+interface EmotionProps {
+  status: QueryStatus;
+  /**
+   * The number of context counts (how many times the user inputted)
+   */
+  emotionResult: EmotionResult[];
+  error?: string;
+  style: DisplayStyle;
+  isVisible: boolean;
+}
+
+export default function Emotion({
+  status,
+  emotionResult,
+  error,
+  style,
+  isVisible,
+}: EmotionProps) {
+  if (window.top !== window || !isVisible) return null;
+
+  const getPosition = () => {
+    const { placement, offset } = style;
+    const positions: Record<string, React.CSSProperties> = {
+      "bottom-right": { bottom: offset, right: offset },
+    };
+    return positions[placement];
+  };
+
+  const renderDisplay = () => {
+    switch (status) {
+      case "ready":
+        return <div>Ready</div>;
+      case "text_loaded":
+        return <div>Receive</div>;
+      case "processing":
+        return <div>Processing</div>;
+      case "done":
+        return (
+          <div>
+            {emotionResult && emotionResult.length > 0 ? (
+              <ul>
+                {emotionResult.map((emotion, index) => (
+                  <li key={index}>
+                    {emotion.name}: {emotion.score.toFixed(2)}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              "Ready"
+            )}
+          </div>
+        );
+      case "error":
+        console.error(error);
+        return <div>{error || "Error"}</div>;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div
+      className="fixed p-1 font-serif"
+      style={{
+        ...getPosition(),
+        zIndex: 100000,
+        borderRadius: "4px",
+        backgroundColor: style.backgroundColor,
+        color: style.textColor,
+        fontSize: style.fontSize,
+        border: `${style.borderWidth} solid ${style.borderColor}`,
+        opacity: style.opacity,
+      }}
+    >
+      {renderDisplay()}
+    </div>
+  );
+}
+
+================
+File: src/pages/content/components/EmotionOverlay.tsx
+================
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+interface Emotion {
+  name: string;
+  score: number;
+}
+
+interface EmotionOverlayProps {
+  isVisible: boolean;
+  emotions: Emotion[];
+  status: "ready" | "processing" | "done" | "error";
+}
+
+export default function EmotionOverlay({
+  isVisible,
+  emotions,
+  status,
+}: EmotionOverlayProps) {
+  const [shouldShow, setShouldShow] = useState(false);
+
+  useEffect(() => {
+    if (status === "done" && emotions.length) {
+      setShouldShow(true);
+      // Auto hide after 3 seconds
+      const timer = setTimeout(() => setShouldShow(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [status, emotions]);
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="fixed bottom-4 right-4 z-[100000]">
+      {status === "ready" && <div className="text-xl">R</div>}
+      {status === "processing" && <div className="text-xl">P</div>}
+      <AnimatePresence>
+        {shouldShow && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="bg-white rounded-lg shadow-lg p-4 max-w-sm"
+          >
+            <h3 className="text-lg font-bold mb-2">Email Emotions</h3>
+            <div className="space-y-2">
+              {emotions.map((emotion, i) => (
+                <motion.div
+                  key={emotion.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="flex justify-between"
+                >
+                  <span className="capitalize">{emotion.name}</span>
+                  <span>{emotion.score}%</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+================
+File: src/pages/content/components/TextSelector.ts
+================
+import debounce from "lodash/debounce";
+
+export class TextSelector {
+  private lastSelectedText: string = "";
+  private callback: (selectedText: string) => void;
+  private readonly debounceTime: number;
+
+  constructor(callback: (selectedText: string) => void, debounceTime = 250) {
+    this.callback = callback;
+    this.debounceTime = debounceTime;
+    this.handleSelection = debounce(
+      this.handleSelection.bind(this),
+      this.debounceTime
+    );
+  }
+
+  private cleanSelectedText(text: string): string {
+    return text
+      .trim()
+      .replace(/\s+/g, " ") // normalize whitespace
+      .replace(/[\u200B-\u200D\uFEFF]/g, ""); // remove zero-width spaces
+  }
+
+  private getSelectionFromIframes(): string {
+    const iframes = Array.from(document.getElementsByTagName("iframe"));
+
+    return iframes.reduce((selectedText, iframe) => {
+      if (selectedText) return selectedText;
+
+      try {
+        const iframeWindow = iframe.contentWindow;
+        if (!iframeWindow?.document) return "";
+
+        return iframeWindow.getSelection()?.toString() || "";
+      } catch (e) {
+        if (!(e instanceof DOMException && e.name === "SecurityError")) {
+          console.error("Unexpected error accessing iframe content:", e);
+        }
+        return "";
+      }
+    }, "");
+  }
+
+  private handleSelection(): void {
+    const mainSelection = window.getSelection()?.toString() || "";
+    const iframeSelection = !mainSelection
+      ? this.getSelectionFromIframes()
+      : "";
+    const selectedText = this.cleanSelectedText(
+      mainSelection || iframeSelection
+    );
+
+    if (selectedText) {
+      this.lastSelectedText = selectedText;
+      this.callback(selectedText);
+    }
+  }
+
+  public attach(): void {
+    document.addEventListener("mouseup", this.handleSelection);
+  }
+
+  public detach(): void {
+    document.removeEventListener("mouseup", this.handleSelection);
+  }
+
+  public reset(): void {
+    this.lastSelectedText = "";
+  }
+}
+
+================
+File: src/pages/content/handlers/messageHandler.ts
+================
+import { MESSAGES } from "@/constants";
+import { QueryStatus } from "@/pages/background/states";
+import { CustomizationConfig } from "@/types/customization-config";
+import { EmotionResult } from "@/types/hume";
+
+export type MessageHandler = (message: {
+  type: MESSAGES;
+  data: unknown;
+}) => void;
+
+export interface MessageHandlerProps {
+  setIsDisplayVisible: (value: React.SetStateAction<boolean>) => void;
+  setQueryStatus: React.Dispatch<React.SetStateAction<QueryStatus>>;
+  setEmotionResult: React.Dispatch<React.SetStateAction<EmotionResult[]>>;
+  setError: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setConfig: (config: CustomizationConfig) => void;
+}
+
+export const createMessageHandler = (
+  props: MessageHandlerProps
+): MessageHandler => {
+  const {
+    setIsDisplayVisible,
+    setQueryStatus,
+    setEmotionResult,
+    setError,
+    setConfig,
+  } = props;
+
+  return (message: { type: MESSAGES; data: unknown }) => {
+    console.log("Message received in content script:", message);
+    switch (message.type) {
+      case MESSAGES.TOGGLE_DISPLAY:
+        setIsDisplayVisible((prev) => !prev);
+        break;
+      case MESSAGES.QUERY_STATUS: {
+        const { status, emotions, error } = message.data as {
+          status: QueryStatus;
+          emotions: EmotionResult[];
+          error?: string;
+        };
+        console.log("Query status", status, emotions, error);
+        setQueryStatus(status);
+        setEmotionResult(emotions);
+        setError(error);
+        break;
+      }
+      case MESSAGES.CONFIG_UPDATED:
+        setConfig(message.data as CustomizationConfig);
+        break;
+      default:
+        break;
+    }
+  };
+};
+
+================
+File: src/pages/content/index.tsx
+================
+import { createRoot } from "react-dom/client";
+import Content from "./components/Content";
+import styles from "./style.css?inline"; // Import CSS as string
+
+// Create a wrapper div
+const wrapper = document.createElement("div");
+wrapper.id = "__root_swipr_wrapper";
+
+// Create shadow DOM
+const shadow = wrapper.attachShadow({ mode: "open" });
+
+// Create root element inside shadow DOM
+const root = document.createElement("div");
+root.id = "__root_swipr";
+
+// Create style element for Tailwind styles
+const style = document.createElement("style");
+style.textContent = styles;
+
+// Append elements
+shadow.appendChild(style);
+shadow.appendChild(root);
+document.body.appendChild(wrapper);
+
+// Mount React
+const reactRoot = createRoot(root);
+reactRoot.render(<Content />);
+
+try {
+  console.log("MailMood injected");
+} catch (e) {
+  console.error(e);
+}
+
+================
+File: src/pages/content/style.css
+================
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.your-class {
+    color: aliceblue;
+}
+
+================
+File: src/pages/content/utils.ts
+================
+import { MESSAGES } from "@/constants";
+
+type MessageCallback<D = unknown> = ({
+  success,
+  data,
+  error,
+}: {
+  success: boolean;
+  data: D;
+  error: Error;
+}) => any;
+
+export const sendMessageToBackground = <D>(
+  type: MESSAGES,
+  data?: any,
+  cb?: MessageCallback<D>
+) => {
+  chrome.runtime.sendMessage({ type, data }).then(cb);
+};
+
+================
+File: src/pages/devtools/index.html
+================
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Devtools</title>
+    </head>
+    <body>
+        <script type="module" src="./index.ts"></script>
+    </body>
+</html>
+
+================
+File: src/pages/devtools/index.ts
+================
+import Browser from 'webextension-polyfill';
+
+Browser
+  .devtools
+  .panels
+  .create('Dev Tools', 'icon-32.png', 'src/pages/devtools/index.html')
+  .catch(console.error);
+
+================
+File: src/pages/newtab/index.css
+================
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+================
+File: src/pages/newtab/index.html
+================
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>New tab</title>
+    </head>
+
+    <body>
+        <div id="__root"></div>
+        <script type="module" src="./index.tsx"></script>
+    </body>
+</html>
+
+================
+File: src/pages/newtab/index.tsx
+================
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import Newtab from '@pages/newtab/Newtab';
+import '@pages/newtab/index.css';
+import '@assets/styles/tailwind.css';
+
+function init() {
+  const rootContainer = document.querySelector("#__root");
+  if (!rootContainer) throw new Error("Can't find Newtab root element");
+  const root = createRoot(rootContainer);
+  root.render(<Newtab />);
+}
+
+init();
+
+================
+File: src/pages/newtab/Newtab.css
+================
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+================
+File: src/pages/newtab/Newtab.tsx
+================
+import React from 'react';
+import logo from '@assets/img/logo.svg';
+import '@pages/newtab/Newtab.css';
+
+export default function Newtab(): JSX.Element {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/pages/newtab/Newtab.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React!
+        </a>
+      </header>
+    </div>
+  );
+}
+
+================
+File: src/pages/options/components/ApiSettings.tsx
+================
+import { useState, useEffect } from "react";
+import { getApiKey, setApiKey } from "@/lib/api-key";
+
+export function ApiSettings() {
+  const [apiKey, setApiKeyState] = useState("");
+  const [saveStatus, setSaveStatus] = useState("");
+
+  useEffect(() => {
+    getApiKey().then((key) => {
+      if (key) {
+        setApiKeyState(key);
+      }
+    });
+  }, []);
+
+  const handleSave = async () => {
+    try {
+      await setApiKey(apiKey);
+      setSaveStatus("API key saved successfully!");
+      setTimeout(() => setSaveStatus(""), 3000);
+    } catch (error) {
+      setSaveStatus("Failed to save API key");
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setApiKeyState(e.target.value);
+  };
+
+  return (
+    <div className="space-y-4">
+      <div className="space-y-2">
+        <p className="text-sm text-muted-foreground">
+          Configure your Hume AI API access
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        <div>
+          <input
+            id="apiKey"
+            type="password"
+            value={apiKey}
+            onChange={handleChange}
+            className="w-full px-3 py-2 border rounded-md"
+            placeholder="Enter your Hume AI API key"
+          />
+        </div>
+
+        <button
+          onClick={handleSave}
+          className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
+        >
+          Save API Key
+        </button>
+
+        {saveStatus && (
+          <p className="text-sm text-muted-foreground">{saveStatus}</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+================
+File: src/pages/options/index.css
+================
+body {
+  width: 100%;
+}
+
+================
+File: src/pages/options/index.html
+================
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MailMood Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div id="__root"></div>
+    <script type="module" src="./index.tsx"></script>
+  </body>
+</html>
+
+================
+File: src/pages/options/index.tsx
+================
+import { createRoot } from "react-dom/client";
+import "@/global.css";
+import Options from "./Options";
+
+function init() {
+  const rootContainer = document.getElementById("__root");
+  if (!rootContainer) {
+    throw new Error("Can't find Options root element");
+  }
+  const root = createRoot(rootContainer);
+  root.render(<Options />);
+}
+
+init();
+
+================
+File: src/pages/options/Options.tsx
+================
+import React from "react";
+import { ApiSettings } from "./components/ApiSettings";
+
+export default function Options() {
+  return (
+    <div className="flex items-center justify-center min-h-screen w-full">
+      <div className="container mx-auto p-6 max-w-2xl bg-white shadow-md rounded-lg">
+        <h1 className="text-2xl font-bold mb-6">MailMood Settings</h1>
+        <div className="space-y-6">
+          <ApiSettings />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+================
+File: src/pages/panel/index.html
+================
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Devtools Panel</title>
+    </head>
+
+    <body>
+        <div id="__root"></div>
+        <script type="module" src="./index.tsx"></script>
+    </body>
+</html>
+
+================
+File: src/pages/panel/index.tsx
+================
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import Panel from '@pages/panel/Panel';
+import '@pages/panel/index.css';
+import '@assets/styles/tailwind.css';
+
+function init() {
+  const rootContainer = document.querySelector("#__root");
+  if (!rootContainer) throw new Error("Can't find Panel root element");
+  const root = createRoot(rootContainer);
+  root.render(<Panel />);
+}
+
+init();
+
+================
+File: src/pages/panel/Panel.css
+================
+body {
+  background-color: #242424;
+}
+
+.container {
+  color: #ffffff;
+}
+
+================
+File: src/pages/panel/Panel.tsx
+================
+import React from 'react';
+import '@pages/panel/Panel.css';
+
+export default function Panel(): JSX.Element {
+  return (
+    <div className="container">
+      <h1>Side Panel</h1>
+    </div>
+  );
+}
+
+================
+File: src/pages/popup/index.css
+================
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: #ffe5e5;
+  color: #ff6b6b;
+  margin: 0;
+  padding: 16px;
+}
+
+.container {
+  background-color: #fffacd;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(255, 107, 107, 0.2);
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 16px;
+  margin-left: 100px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #ff6b6b;
+}
+
+h1 {
+  text-align: center;
+  color: #ff6b6b;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 0 #ffd700;
+}
+
+button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 16px;
+  transition: background-color 0.3s;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-weight: bold;
+  box-shadow: 0 4px 0 #ff4500;
+}
+
+button:hover {
+  background-color: #ff4500;
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #ff4500;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #ff6b6b;
+}
+
+.result-container {
+  background-color: #fff5e6;
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #ffe5b4;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  border: 2px dashed #ff6b6b;
+}
+
+.emotion-name {
+  font-weight: bold;
+  color: #ff6b6b;
+  font-size: 18px;
+}
+
+.emotion-score {
+  float: right;
+  color: #ff8c00;
+  font-weight: bold;
+}
+
+.emotion-text {
+  font-size: 14px;
+  color: #ff6b6b;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+================
+File: src/pages/popup/index.html
+================
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MailMood</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      body {
+        width: 340px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="__root"></div>
+    <script type="module" src="./index.tsx"></script>
+  </body>
+</html>
+
+================
+File: src/pages/popup/index.tsx
+================
+import { createRoot } from "react-dom/client";
+import "@/global.css";
+import Popup from "./Popup";
+
+function init() {
+  const rootContainer = document.getElementById("__root");
+  if (!rootContainer) {
+    throw new Error("Can't find Popup root element");
+  }
+  const root = createRoot(rootContainer);
+  root.render(<Popup />);
+}
+
+init();
+
+================
+File: src/pages/popup/Popup.tsx
+================
+import LOGO from "@/assets/mailmood-logo.png";
+
+export default function Popup() {
+  return (
+    <div className="container">
+      <div className="logo-container">
+        <img src={LOGO} alt="Email Emotion Detector" className="logo" />
+      </div>
+      <h1>MailMood</h1>
+      <div className="space-y-4">
+        <button
+          type="button"
+          onClick={() => chrome.runtime.openOptionsPage()}
+          className="w-full rounded-lg"
+        >
+          Settings
+        </button>
+      </div>
+    </div>
+  );
+}
+
+================
+File: src/types/customization-config.ts
+================
+import { StorageEnum } from "@/lib/storage";
+import { createStorage } from "@/lib/storage";
+
+export interface DisplayStyle {
+  placement: "bottom-right";
+  offset: number;
+  backgroundColor: string;
+  textColor: string;
+  fontSize: string;
+  borderWidth: string;
+  borderColor: string;
+  opacity: number;
+}
+
+export interface CustomizationConfig {
+  displayStyle: DisplayStyle;
+}
+
+export const DEFAULT_CONFIG: CustomizationConfig = {
+  displayStyle: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    textColor: "#ffffff",
+    fontSize: "12px",
+    borderColor: "rgba(255, 255, 255, 0.1)",
+    borderWidth: "1px",
+    opacity: 0.9,
+    placement: "bottom-right",
+    offset: 20,
+  },
+};
+
+export class ConfigManager {
+  private static customizationConfig = createStorage<CustomizationConfig>(
+    "mailmood_customization_config",
+    DEFAULT_CONFIG,
+    {
+      storageEnum: StorageEnum.Local,
+      liveUpdate: true,
+    }
+  );
+
+  public static async getConfig(): Promise<CustomizationConfig> {
+    return this.customizationConfig.get();
+  }
+}
+
+================
+File: src/types/hume.ts
+================
+export interface EmotionPrediction {
+  name: string;
+  score: number;
+}
+
+export interface HumeResponse {
+  predictions: Array<{
+    models: {
+      language: {
+        predictions: Array<{
+          emotions: Array<{
+            name: string;
+            score: number;
+          }>;
+        }>;
+      };
+    };
+  }>;
+}
+
+export interface ProcessedEmotions {
+  emotions: EmotionPrediction[];
+  error?: string;
+}
+
+export interface EmotionResult {
+  name: string;
+  score: number;
+}
+
+================
+File: src/constants.ts
+================
+export enum MESSAGES {
+  // Query Status
+  QUERY_STATUS = "query_status",
+
+  // Display Visability
+  TOGGLE_DISPLAY = "toggle_display",
+
+  // Text Selection
+  TEXT_SELECTED = "text_selected",
+  ANALYZE_TEXT = "analyze_text",
+
+  // Customization
+  CONFIG_UPDATED = "config_updated",
+  GET_CONFIG = "get_config",
+}
+
+export const LOCAL_STORAGE_KEYS = {
+  SELECTED_TEXT: "mailmood_selected_text",
+};
+
+================
+File: src/global.css
+================
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default theme variables */
+  --foreground: 0 0% 0%;
+  --background: 0 0% 100%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.shadow-popup {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+================
+File: src/global.d.ts
+================
+declare module '*.svg' {
+  import React = require('react');
+  export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
+  const src: string;
+  export default src;
+}
+
+declare module '*.json' {
+  const content: string;
+  export default content;
+}
+
+================
+File: src/vite-env.d.ts
+================
+/// <reference types="vite/client" />
+
+================
+File: .gitignore
+================
+# Created by https://www.toptal.com/developers/gitignore/api/webstorm+all,visualstudiocode,sublimetext,node,react,windows,macos,linux
+# Edit at https://www.toptal.com/developers/gitignore?templates=webstorm+all,visualstudiocode,sublimetext,node,react,windows,macos,linux
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### macOS Patch ###
+# iCloud generated files
+*.icloud
+
+### Node ###
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for instrumented libs generated by jscoverage/JSCover
+lib-cov
+
+# Coverage directory used by tools like istanbul
+coverage
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Snowpack dependency directory (https://snowpack.dev/)
+web_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+out
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+# Comment in the public line in if your project uses Gatsby and not Next.js
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# public
+
+# vuepress build output
+.vuepress/dist
+
+# vuepress v2.x temp and cache directory
+.temp
+
+# Docusaurus cache and generated files
+.docusaurus
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+### Node Patch ###
+# Serverless Webpack directories
+.webpack/
+
+# Optional stylelint cache
+
+# SvelteKit build / generate output
+.svelte-kit
+
+### react ###
+.DS_*
+**/*.backup.*
+**/*.back.*
+
+node_modules
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+### SublimeText ###
+# Cache files for Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# Workspace files are user-specific
+*.sublime-workspace
+
+# Project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using Sublime Text
+# *.sublime-project
+
+# SFTP configuration file
+sftp-config.json
+sftp-config-alt*.json
+
+# Package control specific files
+Package Control.last-run
+Package Control.ca-list
+Package Control.ca-bundle
+Package Control.system-ca-bundle
+Package Control.cache/
+Package Control.ca-certs/
+Package Control.merged-ca-bundle
+Package Control.user-ca-bundle
+oscrypto-ca-bundle.crt
+bh_unicode_properties.cache
+
+# Sublime-github package stores a github token in this file
+# https://packagecontrol.io/packages/sublime-github
+GitHub.sublime-settings
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# Support for Project snippet scope
+
+### WebStorm+all ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# AWS User-specific
+.idea/**/aws.xml
+
+# Generated files
+.idea/**/contentModel.xml
+
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# Gradle and Maven with auto-import
+# When using Gradle or Maven with auto-import, you should exclude module files,
+# since they will be recreated, and may cause churn.  Uncomment if using
+# auto-import.
+# .idea/artifacts
+# .idea/compiler.xml
+# .idea/jarRepositories.xml
+# .idea/modules.xml
+# .idea/*.iml
+# .idea/modules
+# *.iml
+# *.ipr
+
+# CMake
+cmake-build-*/
+
+# Mongo Explorer plugin
+.idea/**/mongoSettings.xml
+
+# File-based project format
+*.iws
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# SonarLint plugin
+.idea/sonarlint/
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Editor-based Rest Client
+.idea/httpRequests
+
+# Android studio 3.1+ serialized cache file
+.idea/caches/build_file_checksums.ser
+
+### WebStorm+all Patch ###
+# Ignore everything but code style settings and run configurations
+# that are supposed to be shared within teams.
+
+.idea/*
+
+!.idea/codeStyles
+!.idea/runConfigurations
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/webstorm+all,visualstudiocode,sublimetext,node,react,windows,macos,linux
+
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# build
+/dist
+
+# etc
+.idea
+
+#generated manifest
+public/manifest.json
+
+================
+File: custom-vite-plugins 2.ts
+================
+import fs from 'fs';
+import { resolve } from 'path';
+import type { PluginOption } from 'vite';
+
+// plugin to remove dev icons from prod build
+export function stripDevIcons (isDev: boolean) {
+  if (isDev) return null
+
+  return {
+    name: 'strip-dev-icons',
+    resolveId (source: string) {
+      return source === 'virtual-module' ? source : null
+    },
+    renderStart (outputOptions: any, inputOptions: any) {
+      const outDir = outputOptions.dir
+      fs.rm(resolve(outDir, 'dev-icon-32.png'), () => console.log(`Deleted dev-icon-32.png from prod build`))
+      fs.rm(resolve(outDir, 'dev-icon-128.png'), () => console.log(`Deleted dev-icon-128.png from prod build`))
+    }
+  }
+}
+
+// plugin to support i18n 
+export function crxI18n (options: { localize: boolean, src: string }): PluginOption {
+  if (!options.localize) return null
+
+  const getJsonFiles = (dir: string): Array<string> => {
+    const files = fs.readdirSync(dir, {recursive: true}) as string[]
+    return files.filter(file => !!file && file.endsWith('.json'))
+  }
+  const entry = resolve(__dirname, options.src)
+  const localeFiles = getJsonFiles(entry)
+  const files = localeFiles.map(file => {
+    return {
+      id: '',
+      fileName: file,
+      source: fs.readFileSync(resolve(entry, file))
+    }
+  })
+  return {
+    name: 'crx-i18n',
+    enforce: 'pre',
+    buildStart: {
+      order: 'post',
+      handler() {
+        files.forEach((file) => {
+            const refId = this.emitFile({
+              type: 'asset',
+              source: file.source,
+              fileName: '_locales/'+file.fileName
+            })
+            file.id = refId
+        })
+      }
+    }
+  }
+}
+
+================
+File: custom-vite-plugins.ts
+================
+import fs from 'fs';
+import { resolve } from 'path';
+import type { PluginOption } from 'vite';
+
+// plugin to remove dev icons from prod build
+export function stripDevIcons (isDev: boolean) {
+  if (isDev) return null
+
+  return {
+    name: 'strip-dev-icons',
+    resolveId (source: string) {
+      return source === 'virtual-module' ? source : null
+    },
+    renderStart (outputOptions: any, inputOptions: any) {
+      const outDir = outputOptions.dir
+      fs.rm(resolve(outDir, 'dev-icon-32.png'), () => console.log(`Deleted dev-icon-32.png from prod build`))
+      fs.rm(resolve(outDir, 'dev-icon-128.png'), () => console.log(`Deleted dev-icon-128.png from prod build`))
+    }
+  }
+}
+
+// plugin to support i18n 
+export function crxI18n (options: { localize: boolean, src: string }): PluginOption {
+  if (!options.localize) return null
+
+  const getJsonFiles = (dir: string): Array<string> => {
+    const files = fs.readdirSync(dir, {recursive: true}) as string[]
+    return files.filter(file => !!file && file.endsWith('.json'))
+  }
+  const entry = resolve(__dirname, options.src)
+  const localeFiles = getJsonFiles(entry)
+  const files = localeFiles.map(file => {
+    return {
+      id: '',
+      fileName: file,
+      source: fs.readFileSync(resolve(entry, file))
+    }
+  })
+  return {
+    name: 'crx-i18n',
+    enforce: 'pre',
+    buildStart: {
+      order: 'post',
+      handler() {
+        files.forEach((file) => {
+            const refId = this.emitFile({
+              type: 'asset',
+              source: file.source,
+              fileName: '_locales/'+file.fileName
+            })
+            file.id = refId
+        })
+      }
+    }
+  }
+}
+
+================
+File: LICENSE
+================
+The MIT License (MIT)
+
+Copyright (c) 2022 Jonathan Braat
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================
+File: LICENSE 2
+================
+The MIT License (MIT)
+
+Copyright (c) 2022 Jonathan Braat
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================
+File: manifest.dev 2.json
+================
+{
+  "manifest_version": 3,
+  "name": "MailMood",
+  "version": "0.0.1",
+  "description": "Detects emotions in emails using MailMood",
+  "background": {
+    "service_worker": "src/pages/background/index.ts",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/pages/popup/index.html"
+  },
+  "options_page": "src/pages/options/index.html",
+  "icons": {
+    "16": "chrome-logo/16.png",
+    "48": "chrome-logo/48.png",
+    "128": "chrome-logo/128.png"
+  },
+  "permissions": [
+    "storage",
+    "cookies",
+    "tabs",
+    "scripting",
+    "activeTab",
+    "unlimitedStorage",
+    "offscreen"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["src/pages/content/index.tsx"],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["chrome-logo/*", "fonts/*"],
+      "matches": []
+    }
+  ],
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "http://localhost:8080/*",
+    "<all_urls>"
+  ],
+  "commands": {
+    "toggle_display": {
+      "suggested_key": { "default": "Alt+A" },
+      "description": "Toggle Display"
+    },
+    "submit_text": {
+      "suggested_key": { "default": "Alt+Q" },
+      "description": "Submit Email Text"
+    },
+    "clear_context": {
+      "suggested_key": { "default": "Alt+C" },
+      "description": "Clear Context"
+    }
+  }
+}
+
+================
+File: manifest.dev.json
+================
+{
+  "manifest_version": 3,
+  "name": "MailMood",
+  "version": "0.0.1",
+  "description": "Detects emotions in emails using MailMood",
+  "background": {
+    "service_worker": "src/pages/background/index.ts",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/pages/popup/index.html"
+  },
+  "options_page": "src/pages/options/index.html",
+  "icons": {
+    "16": "chrome-logo/16.png",
+    "48": "chrome-logo/48.png",
+    "128": "chrome-logo/128.png"
+  },
+  "permissions": [
+    "storage",
+    "cookies",
+    "tabs",
+    "scripting",
+    "activeTab",
+    "unlimitedStorage",
+    "offscreen"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["src/pages/content/index.tsx"],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["chrome-logo/*", "fonts/*"],
+      "matches": []
+    }
+  ],
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "http://localhost:8080/*",
+    "<all_urls>"
+  ],
+  "commands": {
+    "toggle_display": {
+      "suggested_key": { "default": "Alt+A" },
+      "description": "Toggle Display"
+    },
+    "submit_text": {
+      "suggested_key": { "default": "Alt+Q" },
+      "description": "Submit Email Text"
+    },
+    "clear_context": {
+      "suggested_key": { "default": "Alt+C" },
+      "description": "Clear Context"
+    }
+  }
+}
+
+================
+File: manifest.json
+================
+{
+  "manifest_version": 3,
+  "name": "MailMood",
+  "version": "0.0.1",
+  "description": "Detects emotions in emails using MailMood",
+  "background": {
+    "service_worker": "src/pages/background/index.ts",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/pages/popup/index.html"
+  },
+  "options_page": "src/pages/options/index.html",
+  "icons": {
+    "16": "chrome-logo/16.png",
+    "48": "chrome-logo/48.png",
+    "128": "chrome-logo/128.png"
+  },
+  "permissions": [
+    "storage",
+    "cookies",
+    "tabs",
+    "scripting",
+    "activeTab",
+    "unlimitedStorage",
+    "offscreen"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["src/pages/content/index.tsx"],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["chrome-logo/*", "fonts/*"],
+      "matches": []
+    }
+  ],
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "http://localhost:8080/*",
+    "<all_urls>"
+  ],
+  "commands": {
+    "toggle_display": {
+      "suggested_key": { "default": "Alt+A" },
+      "description": "Toggle Display"
+    },
+    "submit_text": {
+      "suggested_key": { "default": "Alt+Q" },
+      "description": "Submit Email Text"
+    },
+    "clear_context": {
+      "suggested_key": { "default": "Alt+C" },
+      "description": "Clear Context"
+    }
+  }
+}
+
+================
+File: nodemon.chrome.json
+================
+{
+  "env": {
+    "__DEV__": "true"
+  },
+  "watch": [
+    "src",
+    "utils",
+    "vite.config.base.ts",
+    "vite.config.chrome.ts",
+    "manifest.json",
+    "manifest.dev.json"
+  ],
+  "ext": "tsx,css,html,ts,json",
+  "ignore": [
+    "src/**/*.spec.ts"
+  ],
+  "exec": "vite build --config vite.config.chrome.ts --mode development"
+}
+
+================
+File: nodemon.firefox.json
+================
+{
+  "env": {
+    "__DEV__": "true"
+  },
+  "watch": [
+    "src",
+    "utils",
+    "vite.config.base.ts",
+    "vite.config.firefox.ts",
+    "manifest.json",
+    "manifest.dev.json"
+  ],
+  "ext": "tsx,css,html,ts,json",
+  "ignore": [
+    "src/**/*.spec.ts"
+  ],
+  "exec": "vite build --config vite.config.firefox.ts --mode development"
+}
+
+================
+File: package.json
+================
+{
+  "name": "vite-web-extension",
+  "version": "1.4.0",
+  "description": "A simple chrome & firefox extension template with Vite, React, TypeScript and Tailwind CSS.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JohnBra/vite-web-extension.git"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  },
+  "type": "module",
+  "dependencies": {
+    "@radix-ui/react-hover-card": "^1.1.2",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-popover": "^1.1.2",
+    "@radix-ui/react-radio-group": "^1.2.1",
+    "@radix-ui/react-select": "^2.1.2",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slider": "^1.2.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-tooltip": "^1.1.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.12.0",
+    "lodash": "^4.17.21",
+    "lucide-react": "^0.462.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7",
+    "webextension-polyfill": "^0.12.0",
+    "wretch": "^2.11.0",
+    "dotenv": "^16.4.5",
+    "hume": "^0.8.3"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "2.0.0-beta.28",
+    "@types/chrome": "^0.0.278",
+    "@types/lodash": "^4.17.13",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/webextension-polyfill": "^0.12.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "fs-extra": "^11.2.0",
+    "nodemon": "^3.1.7",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11",
+    "vite-tsconfig-paths": "^5.1.3"
+  }
+}
+
+================
+File: postcss.config.cjs
+================
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+
+================
+File: README.md
+================
+# 📧😊 MailMood - Email Emotion Detection Tool
+
+## Summary
+
+MailMood is a Chrome extension designed to enhance emotional understanding in digital communication by detecting and highlighting emotions in email content. By identifying the emotional tone and specific triggering words or phrases in an email, the tool aims to bridge communication gaps in professional and academic settings.
+
+================
+File: tailwind.config.cjs
+================
+module.exports = {
+  // prefix: {
+  //   // Use prefixes only for files in the content folder.
+  //   'src/pages/content/': 'swipr-',
+  // },
+  darkMode: true,
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["sans-serif"]
+      },
+      animation: {
+        "spin-slow": "spin 20s linear infinite",
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        chart: {
+          1: "hsl(var(--chart-1))",
+          2: "hsl(var(--chart-2))",
+          3: "hsl(var(--chart-3))",
+          4: "hsl(var(--chart-4))",
+          5: "hsl(var(--chart-5))",
+        },
+      },
+    },
+  },
+  prefix: "",
+  plugins: [require("tailwindcss-animate")],
+};
+
+================
+File: tsconfig.json
+================
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "types": ["vite/client", "node", "chrome"],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@src/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@locales/*": ["src/locales/*"],
+      "@pages/*": ["src/pages/*"]
+    }
+  },
+  "include": [
+    "src",
+    "utils",
+    "vite.config.base.ts",
+    "vite.config.chrome.ts",
+    "vite.config.firefox.ts"
+  ]
+}
+
+================
+File: vite-env.d.ts
+================
+interface ImportMetaEnv {
+  readonly VITE_HUME_API_KEY: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
+================
+File: vite.config.ts
+================
+import react from "@vitejs/plugin-react";
+import { stripDevIcons, crxI18n } from "./custom-vite-plugins";
+import { resolve } from "path";
+import { defineConfig } from "vite";
+import { crx, ManifestV3Export } from "@crxjs/vite-plugin";
+
+import manifest from "./manifest.json";
+import devManifest from "./manifest.dev.json";
+import pkg from "./package.json";
+
+const root = resolve(__dirname, "src");
+const pagesDir = resolve(root, "pages");
+const assetsDir = resolve(root, "assets");
+const outDir = resolve(__dirname, "dist");
+const publicDir = resolve(__dirname, "public");
+
+const isDev = process.env.__DEV__ === "true";
+// set this flag to true, if you want localization support
+const localize = false;
+
+const extensionManifest = {
+  ...manifest,
+  version: pkg.version,
+  ...(isDev ? devManifest : ({} as ManifestV3Export)),
+  ...(localize
+    ? {
+        name: "__MSG_extName__",
+        description: "__MSG_extDescription__",
+        default_locale: "en",
+      }
+    : {}),
+};
+
+/*
+* By default this vite config produces a dist for chrome
+* To build for firefox change the "browser" prop in the crx config below to 'firefox'
+* AND ALSO change the "background" config in the manifest.json to the following:
+* 
+{
+  "manifest_version": 3,
+  "name": "<name in manifest.json>",
+  "description": "<description in manifest.json>",
+  ...
+  "background": 
+    "scripts": [ "service-worker-loader.js" ]
+  },
+  ...
+}
+* NOTE: remove "type" prop and "service_worker" prop (string val) 
+* then replace with "scripts" prop (array val)
+*/
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      "@src": root,
+      "@assets": assetsDir,
+      "@pages": pagesDir,
+      "@": resolve(__dirname, "./src"),
+    },
+  },
+  plugins: [
+    react(),
+    crx({
+      manifest: extensionManifest as ManifestV3Export,
+      browser: "chrome", // <-- change value to 'firefox' or 'chrome'
+      contentScripts: {
+        injectCss: false, // manually habdle css injection
+      },
+    }),
+    stripDevIcons(isDev),
+    crxI18n({
+      localize,
+      src: "./src/locales",
+    }),
+  ],
+  publicDir,
+  build: {
+    outDir,
+    sourcemap: isDev,
+    emptyOutDir: !isDev,
+    cssCodeSplit: false, // This ensures CSS is bundled together
+  },
+  css: {
+    modules: {
+      scopeBehaviour: "local",
+    },
+  },
+});

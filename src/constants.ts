@@ -12,6 +12,10 @@ export enum MESSAGES {
   // Customization
   CONFIG_UPDATED = "config_updated",
   GET_CONFIG = "get_config",
+
+  // Email Draft
+  GENERATE_EMAIL_DRAFT = "generate_email_draft",
+  EMAIL_DRAFT_GENERATED = "email_draft_generated",
 }
 
 export const LOCAL_STORAGE_KEYS = {

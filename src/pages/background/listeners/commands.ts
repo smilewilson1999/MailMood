@@ -47,6 +47,7 @@ async function handleSubmitText() {
     sendMessageToContent(MESSAGES.QUERY_STATUS, {
       status: "done",
       emotions: response.emotions,
+      context: response.context,
     });
     console.log("finished");
   } catch (error) {

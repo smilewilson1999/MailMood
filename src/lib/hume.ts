@@ -1,4 +1,4 @@
-import type { EmotionResult } from "@/constants";
+import type { EmotionResult } from "@/types/hume";
 
 interface HumeConfig {
   apiKey: string;
